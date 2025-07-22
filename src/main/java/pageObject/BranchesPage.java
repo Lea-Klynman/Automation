@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 
 public class BranchesPage  extends BtlBasePage{
     public BranchesPage(WebDriver driver) {
@@ -15,7 +14,6 @@ public class BranchesPage  extends BtlBasePage{
     public void isOnPage() throws InterruptedException {
         Thread.sleep(3000);
         WebElement title= driver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[1]/h1\n"));
-        ////div[@class='opener-bg']/h1[starts-with(text(),’סניפים’]
         Assertions.assertEquals("סניפים וערוצי שירות", title.getText(),"Not found the page");
     }
     public void chooseBranch(){
@@ -24,12 +22,12 @@ public class BranchesPage  extends BtlBasePage{
     }
     public void isClickBranch() throws InterruptedException {
         Thread.sleep(5000);
-        WebElement label=driver.findElement(By.xpath("//div//label[contains(text(),'כתובת')]"));
-       // System.out.println(labels.get(0).getText());
-        Assertions.assertEquals("כתובת", label.getText(),"Not found the label address");
-      //  System.out.println(labels.get(1).getText());
-     //   Assertions.assertEquals("כתובת", labels.get(1).getText(),"Not found the label");
-      //  Assertions.assertEquals("מענה טלפוני", labels.get(2).getText(),"Not found the label phone ");
+        WebElement address=driver.findElement(By.xpath("//div//label[contains(text(),'כתובת')]"));
+        Assertions.assertEquals("כתובת", address.getText(),"Not found the label address");
+        WebElement people=driver.findElement(By.xpath("//div//label[contains(text(),'קבלת קהל')]"));
+        Assertions.assertEquals("קבלת קהל", people.getText(),"Not found the label address");
+        WebElement phone=driver.findElement(By.xpath("//div//label[contains(text(),'מענה טלפוני')]"));
+        Assertions.assertEquals("מענה טלפוני", phone.getText(),"Not found the label address");
 
     }
 }
