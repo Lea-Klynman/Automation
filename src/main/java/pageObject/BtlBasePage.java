@@ -14,6 +14,9 @@ public class BtlBasePage extends BasePage {
     @FindBy(id ="ctl00_Topmneu_BranchesHyperLink" )
     protected WebElement BranchesButton;
 
+    @FindBy(id ="ctl00_Topmneu_InsuranceHyperLink" )
+    protected WebElement DmaiBituchButton;
+
     public BtlBasePage(WebDriver driver) {
         super(driver);
     }
@@ -30,7 +33,6 @@ public class BtlBasePage extends BasePage {
     public void EnterValueToSearchInput(String value){
         Search.sendKeys(value );
         Search.sendKeys( Keys.ENTER);
-        System.out.println("gdg");
     }
 
     public BranchesPage NavigateBranches(){
@@ -38,6 +40,10 @@ public class BtlBasePage extends BasePage {
         return new BranchesPage(super.driver);
     }
 
-
+    public DmaiBituachLeumi NavigateDmaiBituchLeumi(){
+        DmaiBituchButton.click();
+        driver.findElement(By.xpath("div//ul//li//a[contains(text(),'דמי ביטוח לאומי')]\"")).click();
+        return new DmaiBituachLeumi(super.driver);
+    }
 
 }
